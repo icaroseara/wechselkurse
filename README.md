@@ -1,5 +1,10 @@
 # Wechselkurse
+[![Build Status](https://travis-ci.org/icaroseara/wechselkurse.svg?branch=master)](https://travis-ci.org/icaroseara/wechselkurse)
+[![Code Climate](https://codeclimate.com/github/icaroseara/wechselkurse/badges/gpa.svg)](https://codeclimate.com/github/icaroseara/wechselkurse)
+[![Test Coverage](https://codeclimate.com/github/icaroseara/wechselkurse/badges/coverage.svg)](https://codeclimate.com/github/icaroseara/wechselkurse/coverage)
+
 Wechselkurse is a Ruby wrapper and CLI for some APIs of currency exchange rates.
+
 
 ## Installation
 

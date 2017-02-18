@@ -21,6 +21,7 @@ module Wechselkurse
       }
       options[:query].merge!(@auth)
       exchange_rates = raw_exchange_rates(options)
+      Wechselkurse::Broadcaster.send_message exchange_rates
       exchange_rates
     end
 
@@ -33,6 +34,7 @@ module Wechselkurse
       exchange_rate = exchange_rates[:quotes].map do |quote|
         { quote.key.to_sym => value * quote.value}
       end
+      Wechselkurse::Broadcaster.send_message exchange_rate
       exchange_rate
     end
 
@@ -41,6 +43,7 @@ module Wechselkurse
         exchange_rates(source: source, currencies: target.to_a, date: date).last
       end
       highest_exchange_rate = last_exchange_rates.max_by{|code, value| value}
+      Wechselkurse::Broadcaster.send_message highest_exchange_rate
       highest_exchange_rate
     end
 

@@ -33,7 +33,7 @@ $ docker build -t wechselkurse .
 Run your containers:
 
 ```sh
-$ docker run -e CURRENCYLAYER_ACCESS_KEY=access_key wechselkurse
+$ docker run -e CURRENCYLAYER_ACCESS_KEY=access_key -e SLACK_WEBHOOK_URL=some_url -e SLACK_CHANNEL=channel -e SLACK_USERNAME=username wechselkurse
 ```
 
 ```ruby
@@ -51,7 +51,7 @@ Wechselkurse::Currencylayer.highest_exchange_rate(source: 'USD', target: 'EUR')
 
 Access application container:
 ```sh
-$ docker run -e CURRENCYLAYER_ACCESS_KEY=access_key wechselkurse bash
+$ docker run -e CURRENCYLAYER_ACCESS_KEY=access_key -e SLACK_WEBHOOK_URL=some_url -e SLACK_CHANNEL=channel -e SLACK_USERNAME=username wechselkurse bash
 ```
 
 Running tests cases:

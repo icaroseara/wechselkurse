@@ -33,17 +33,30 @@ $ docker build -t wechselkurse .
 Run your containers:
 
 ```sh
-$ docker run -d wechselkurse
+$ docker run -e CURRENCYLAYER_ACCESS_KEY=access_key wechselkurse
+```
+
+```ruby
+require 'wechselkurse'
+
+# List the exchange rates
+Wechselkurse::Currencylayer.exchange_rates(source: 'USD', currencies: ['EUR', 'BRL'], date: Date.today)
+
+# Calculate exchange rate
+Wechselkurse::Currencylayer.exchange_rate(source: 'USD', currencies: ['EUR', 'BRL'], value: 100, date: Date.today)
+
+# Get the highest exchange rate in the last seven days
+Wechselkurse::Currencylayer.highest_exchange_rate(source: 'USD', target: 'EUR')
 ```
 
 Access application container:
 ```sh
-$ docker run -it wechselkurse bash
+$ docker run -e CURRENCYLAYER_ACCESS_KEY=access_key wechselkurse bash
 ```
 
 Running tests cases:
 ```sh
-$ docker run -it wechselkurse bundle exec rspec
+$ docker run -e CURRENCYLAYER_ACCESS_KEY=access_key wechselkurse bundle exec rspec
 ```
 
 ## Development

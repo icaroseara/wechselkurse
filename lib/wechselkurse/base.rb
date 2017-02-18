@@ -6,10 +6,15 @@ module Wechselkurse
 
     format :json
 
-    DEFAULT_TARGET_CURRENCIES = %w(GBP CHF BRL EUR).freeze
-    DEFAULT_BASE_CURRENCY = %w(USD)
+    def exchange_rates(source:, currencies:, date: nil)
+      raise NotImplementedError
+    end
 
-    def exchange_rates(from, to=[])
+    def exchange_rate(source:, currencies:, value:, date: nil)
+      raise NotImplementedError
+    end
+
+    def highest_exchange_rate(source:, target:)
       raise NotImplementedError
     end
 
